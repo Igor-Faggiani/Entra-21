@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários</title>
+</head>
+<body>
+    <h1>Formulários</h1>
+    <form action="" method="get" autocomplete="on">
+        <label for="email">E-mail</label> 
+        <input type="email" name="email" id="email" placeholder="example@gmail.com"><br>
+        
+        <label for="senha">Senha</label>
+        <input type="password" name="senha" id="senha"><br>
+
+        <button type="submit">Entrar</button>
+    </form>
+
+    <br><br>
+    <!-- query string: ?chave=valor&chave2=valor -->
+    <form action="https://google.com.br/search" method="get">
+    <label for="pesquisa">Valor da pesquisa</label>
+    <input type="text" name="q">
+    <input type="submit" value="Pesquisar">
+    </form>
+
+    <br><br>
+    <form action="" method="post">
+        <label>
+        Data de nascimento
+        <input type="date" name="dataNascimento" min="1930-01-01" max="2023-09-25">
+        </label><br>
+
+        <label>
+        Hora de nascimento
+        <input type="time" name="horaNascimento" id="">
+        </label><br>
+
+        <label>
+        Foto
+        <input type="file" name="foto" id="" accept=".doc,.pdf">
+        </label>
+
+        <p>Escolha seu sexo:</p>
+        <label>
+        <input type="radio"  id="" name="sexo" value="masculino"> Masculino
+        </label>
+        <label>
+        <input type="radio" id="" name="sexo" value="feminino"> Feminino
+        </label>
+
+        <p>Selecione as linguagens que você conhece</p>
+        <label for="">
+            <input type="checkbox" name="c#"> C#
+        </label><br>
+        <label for="">
+            <input type="checkbox" name="java"> JAVA
+        </label><br>
+        <label for="">
+            <input type="checkbox" name="python"> Python
+        </label><br><br>
+
+        <fieldset>
+            <legend>Endereço</legend>
+        <p>Selecione o estado</p>
+        <label>
+        <select name="estado" id="">
+            <option value="" selected disabled>Selecione uma opção</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="SC">Santa Catarina</option>
+        </select>
+    </label>
+</fieldset><br><br>
+
+<label>
+    Informações adicionais
+    <textarea name="infoAdicional" minlength="20" cols="30" rows="10" placeholder="Digite algo"></textarea>
+</label><br><br>
+
+<input type="reset" value="Limpar Formulários">
+
+</body>
+</html>

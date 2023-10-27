@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex justify-content-between align-items-center my-3">
+            <h1><img class="d-block" height="70" src="" alt="Logo do site"></h1>
+            <div class="d-md-flex d-none column-gap-3">
+                <div class="input-group align-self-center">
+                    <input class="form-control" type="text" placeholder="Pesquisar">
+                    <i class="bi bi-search input-group-text"></i>
+                </div>
+                <button class="btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling" aria-label="login ">
+                    <i class="bi bi-person-circle fs-1"></i>
+                </button>
+            </div>
+        </header>
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <p>Try scrolling the rest of the page to see this option in action.</p>
+            </div>
+            <div class="offcanvas-body">
+                <div class="text-center">
+                    <i class="bi bi-person-circle fs-1"></i>
+                </div>
+            </div>
+          </div>
+    </div>
+    <nav class="navbar navbar-dark navbar-expand-lg sticky-top bg-primary roudend">
+        <div class="container"></div>
+        <a href="" class="navbar-brand nav-link">Categorias</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse">
+            <div class="navbar-nav flex-grow-1 d-flex justify-content-evenly">
+                <a href="" class="nav-link"></a>
+            </div>
+          </div>
+    </nav>
+</body>
+</html>

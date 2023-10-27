@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="igorf"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-08-19 12:13:40 "/>
+        <attribute name="created" value="aWdvcmY7SUdPUkJJVENIRVNQQzsyMDIzLTA4LTE5OyIxMjowNjoyNiAiOzI2OTg="/>
+        <attribute name="edited" value="aWdvcmY7SUdPUkJJVENIRVNQQzsyMDIzLTA4LTE5OyIxMjoxMzo0MCAiOzE7MjgwMA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nota1" type="Real" array="False" size=""/>
+            <declare name="nota2" type="Real" array="False" size=""/>
+            <declare name="nota3" type="Real" array="False" size=""/>
+            <declare name="resultado" type="Real" array="False" size=""/>
+            <input variable="nota1"/>
+            <input variable="nota2"/>
+            <input variable="nota3"/>
+            <assign variable="resultado" expression="(nota1 * 3 + nota2 * 4 + nota3 * 3) / (3 + 4 + 3)"/>
+            <output expression="resultado" newline="False"/>
+        </body>
+    </function>
+</flowgorithm>

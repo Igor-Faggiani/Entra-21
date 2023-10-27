@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="igorf"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-08-21 10:16:31 "/>
+        <attribute name="created" value="aWdvcmY7SUdPUkJJVENIRVNQQzsyMDIzLTA4LTIxOyIwNjoyNjowOCAiOzI2OTY="/>
+        <attribute name="edited" value="aWdvcmY7SUdPUkJJVENIRVNQQzsyMDIzLTA4LTIxOyIxMDoxNjozMSAiOzE7Mjc5NA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="altura" type="Real" array="False" size=""/>
+            <declare name="sexo" type="String" array="False" size=""/>
+            <declare name="peso" type="Real" array="False" size=""/>
+            <output expression="&quot;Digite sua altura:&quot;" newline="False"/>
+            <input variable="altura"/>
+            <output expression="&quot;Se voc&#234; &#233; Homem digite (H), ou Mulher (M): &quot;" newline="True"/>
+            <input variable="sexo"/>
+            <if expression="sexo = &quot;H&quot;">
+                <then>
+                    <assign variable="peso" expression="(72.7 * altura) - 58"/>
+                </then>
+                <else/>
+            </if>
+            <output expression="&quot;Seu peso ideal &#233;: &quot; &amp;  peso &amp; &quot; Kg&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

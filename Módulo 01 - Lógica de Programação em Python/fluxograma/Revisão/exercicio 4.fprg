@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="igorf"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-08-19 12:36:54 "/>
+        <attribute name="created" value="aWdvcmY7SUdPUkJJVENIRVNQQzsyMDIzLTA4LTE5OyIxMjoyOTowOSAiOzI3MDQ="/>
+        <attribute name="edited" value="aWdvcmY7SUdPUkJJVENIRVNQQzsyMDIzLTA4LTE5OyIxMjozNjo1NCAiOzE7MjgxMA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;Digite sua idade:&quot;" newline="True"/>
+            <declare name="ano" type="Integer" array="False" size=""/>
+            <input variable="ano"/>
+            <output expression="&quot;Digite seus meses:&quot;" newline="True"/>
+            <declare name="meses" type="Integer" array="False" size=""/>
+            <input variable="meses"/>
+            <output expression="&quot;Digite seus dias:&quot;" newline="True"/>
+            <declare name="dias" type="Integer" array="False" size=""/>
+            <input variable="dias"/>
+            <assign variable="ano" expression="ano * 365"/>
+            <assign variable="meses" expression="meses * 30"/>
+            <assign variable="dias" expression="dias + meses + ano"/>
+            <output expression="&quot;Ao todo, voc&#234; tem: &quot; &amp; dias &amp; &quot; dias de vida&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="igorf"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-08-21 10:22:48 "/>
+        <attribute name="created" value="aWdvcmY7SUdPUkJJVENIRVNQQzsyMDIzLTA4LTIxOyIxMDoxNjozNCAiOzI2ODk="/>
+        <attribute name="edited" value="aWdvcmY7SUdPUkJJVENIRVNQQzsyMDIzLTA4LTIxOyIxMDoyMjo0OCAiOzE7Mjc5OQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="ano" type="Integer" array="False" size=""/>
+            <output expression="&quot;Digite o ano: &quot;" newline="True"/>
+            <input variable="ano"/>
+            <if expression="ano % 4 == 0">
+                <then>
+                    <if expression="ano % 100 == 0">
+                        <then>
+                            <if expression="ano % 400 == 0">
+                                <then>
+                                    <output expression="&quot;O ano &#233; bissexto!&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;O ano n&#227;o &#233; bissexto!&quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <output expression="&quot;O ano &#233; bissexto!&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <output expression="&quot;O ano n&#227;o &#233; bissexto!&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="igorf"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-08-19 12:47:06 "/>
+        <attribute name="created" value="aWdvcmY7SUdPUkJJVENIRVNQQzsyMDIzLTA4LTE5OyIxMjozNzoyMSAiOzI2OTc="/>
+        <attribute name="edited" value="aWdvcmY7SUdPUkJJVENIRVNQQzsyMDIzLTA4LTE5OyIxMjo0NzowNiAiOzE7MjgwOQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;Digite os votos em branco: &quot;" newline="True"/>
+            <declare name="brancos" type="Integer" array="False" size=""/>
+            <input variable="brancos"/>
+            <output expression="&quot;Digite os votos nulos: &quot;" newline="True"/>
+            <declare name="nulos" type="Integer" array="False" size=""/>
+            <input variable="nulos"/>
+            <output expression="&quot;Digite os Votos V&#225;lidos: &quot;" newline="True"/>
+            <declare name="validos" type="Integer" array="False" size=""/>
+            <input variable="validos"/>
+            <declare name="total" type="Integer" array="False" size=""/>
+            <assign variable="total" expression="validos + brancos + nulos"/>
+            <assign variable="brancos" expression="brancos * 100 / total"/>
+            <output expression="&quot;A porcentagem dos votos em branco &#233; de: &quot; &amp; brancos &amp; &quot;%&quot;" newline="True"/>
+            <assign variable="validos" expression="validos * 100 / total"/>
+            <output expression="&quot;A porcentagem dos votos v&#225;lidos &#233; de: &quot; &amp; validos &amp; &quot;%&quot;" newline="True"/>
+            <assign variable="nulos" expression="nulos * 100 / total"/>
+            <output expression="&quot;A porcentagem dos votos nulos &#233; de: &quot; &amp; nulos &amp; &quot;%&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

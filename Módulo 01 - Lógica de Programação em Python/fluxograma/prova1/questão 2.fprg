@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="igorf"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-08-21 10:18:38 "/>
+        <attribute name="created" value="aWdvcmY7SUdPUkJJVENIRVNQQzsyMDIzLTA4LTE4OyIxMDoxMzoyNSAiOzI2OTI="/>
+        <attribute name="edited" value="aWdvcmY7SUdPUkJJVENIRVNQQzsyMDIzLTA4LTIxOyIxMDoxODozOCAiOzI7MjgwNA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="numero1" type="Real" array="False" size=""/>
+            <declare name="numero2" type="Real" array="False" size=""/>
+            <declare name="opera&#231;&#227;o" type="String" array="False" size=""/>
+            <output expression="&quot;Digite um n&#250;mero:&quot;" newline="True"/>
+            <input variable="numero1"/>
+            <output expression="&quot;Digite a opera&#231;&#227;o: (+), (-), (*), (/)&quot;" newline="True"/>
+            <input variable="opera&#231;&#227;o"/>
+            <output expression="&quot;Digite outro n&#250;mero:&quot;" newline="True"/>
+            <input variable="numero2"/>
+            <if expression="opera&#231;&#227;o = &quot;+&quot;">
+                <then>
+                    <assign variable="numero1" expression="numero1 + numero2"/>
+                </then>
+                <else>
+                    <if expression="opera&#231;&#227;o = &quot;-&quot;">
+                        <then>
+                            <assign variable="numero1" expression="numero1 - numero2"/>
+                        </then>
+                        <else>
+                            <if expression="opera&#231;&#227;o = &quot;/&quot;">
+                                <then>
+                                    <assign variable="numero1" expression="numero1 / numero2"/>
+                                </then>
+                                <else>
+                                    <if expression="opera&#231;&#227;o = &quot;*&quot;">
+                                        <then>
+                                            <assign variable="numero1" expression="numero1 * numero2"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <output expression="&quot;O resultado &#233;:&quot; &amp; numero1" newline="False"/>
+        </body>
+    </function>
+</flowgorithm>

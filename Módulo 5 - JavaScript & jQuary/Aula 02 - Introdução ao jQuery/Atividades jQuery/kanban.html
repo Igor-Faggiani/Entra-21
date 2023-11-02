@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadro Kanban</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="static/js/jquery-3.7.1.min.js"></script>
+    <script src="static/js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- 12 colunas no total -->
+            <div class="col-md-4">
+                <h3 class="text-center">A fazer</h3>
+                <div class="kanban-column" id="todo">
+                    <!-- Itens a fazer serão adicionados aqui -->
+                    <div class="kanban-item">
+                        <span>Tarefa 01</span>
+                        <div class="d-flex column-gap-2">
+                            <button class="btn btn-warning btn-sm">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="bi bi-x"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3 class="text-center">Em progresso</h3>
+                <div class="kanban-column" id="inProgress">
+                    <!-- Itens a fazer serão adicionados aqui -->
+                    <div class="kanban-item">
+                        <span>Tarefa 01</span>
+                        <div class="d-flex column-gap-2">
+                            <button class="btn btn-warning btn-sm">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="bi bi-x"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3 class="text-center">Concluído</h3>
+                <div class="kanban-column" id="done">
+                    <!-- Itens a fazer serão adicionados aqui -->
+                    <div class="kanban-item">
+                        <span>Tarefa 01</span>
+                        <div class="d-flex column-gap-2">
+                            <button class="btn btn-warning btn-sm">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="bi bi-x"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addTaskModalLabel">Adicionar tarefa</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="addTaskForm">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="descriptionInput" class="form-label">Descrição</label>
+                            <input type="text" class="form-control" name="description" id="descriptionInput" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descriptionInput" class="form-label">Quadro</label>
+                            <select name="board" id="boardSelect" class="form-select" required>
+                                <option value="todo">A fazer</option>
+                                <option value="inProgress">Em progresso</option>
+                                <option value="done">Concluído</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary">Salvar alterações</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary btn-lg add-task-button" data-bs-toggle="modal" data-bs-target="#addTaskModal">
+        <i class="bi bi-plus"></i>
+    </button>
+
+    <script src="static/js/khanban.js"></script>
+</body>

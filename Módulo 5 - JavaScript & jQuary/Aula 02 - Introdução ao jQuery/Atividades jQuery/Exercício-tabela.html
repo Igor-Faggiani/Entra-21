@@ -45,10 +45,11 @@
                     <td>${person.age}</td>
                     <td>${formatSex(person.sex)}</td>
                 </tr>`);
+                // Inserir a linha na tabela
+                $tbody.append($row);
             });
 
-            // Inserir a linha na tabela
-            $tbody.append($row);
+
         });
 
     </script>

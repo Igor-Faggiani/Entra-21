@@ -35,16 +35,23 @@
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id="inputField" placeholder="Digite sua Tarefa">
                     <button type="button" class="btn btn-warning" id="addTarefa">
-                        <i class="fa fa-add text-white"></i>
+                        <i class="fa fa-add text-black"></i>
                     </button>
                 </div>
                 <div class="lista-tarefas" id="lista-container">
-                    <ul>
-                        <li></li>
+                    <ul class="list-group ">
+                        <li class="list-group-item ">
+                            <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckboxStretched">
+                            <label class="form-check-label stretched-link " for="firstCheckboxStretched">First
+                                checkbox</label>
+                                <button class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></button>
+                                <button class="btn btn-warning text-danger"><i class="fa-solid fa-trash"></i></button>
+                            </li>
                     </ul>
                 </div>
             </div>
         </div>
+        <script src="static/js/jquery-3.7.1.min.js"></script>
         <script src="static/js/main.js"></script>
 </body>
 

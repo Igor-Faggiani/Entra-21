@@ -13,3 +13,15 @@ class Account(ABC):
         self.account_number = account_number
         self.holder_name = holder
         self.balance = balance
+        
+    def deposit(self):
+        """Executa a ação de depositar."""
+        pass
+    
+    def withdraw(self):
+        """Executa a ação de sacar."""
+        pass
+    
+    def transfer(self):
+        """Executa a ação de transefir."""
+        pass

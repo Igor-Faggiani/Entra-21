@@ -11,7 +11,7 @@ class Guerreiro(Personagem):
     """
     
     def __init__(self, nome: str, nivel: int, vida: int, forca: int):
-        super().__init__(nome, vida, vida)
+        super().__init__(nome, vida, forca)
         self.forca = forca # Atriuto específico do guerreiro.
         
     def atacar(self):

@@ -11,7 +11,7 @@ class Mago(Personagem, IHabilidadeEspecial):
     """
     
     def __init__(self, nome: str, nivel: int, vida: int, magia: int):
-        super().__init__(nome, vida, magia)
+        super().__init__(nome, nivel, vida, magia)
         self.magia = magia # Atriuto específico do mago.
         
     def atacar(self):

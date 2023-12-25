@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+ Listagem de Clientes
+{% endblock  %}
+{% block content %}
+<h1>Lista de clientes</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>E-mail</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for client in clients %}
+      <tr>
+        <td>{{ client.name }}</td>
+        <td>{{ client.email }}</td>
+        <td>
+          <form action="{% url 'delete' client.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="remover" />
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -8,16 +8,16 @@ class DatabaseInitialize:
         db_name: Nome do banco de dados.
     """
 
-    def __init__(self, db_name):
+    def __init__(self, db_name: str):
         self.db_name = db_name
 
-    def create_tables(self):
+    def create_tables(db_name: str):
         """Cria as tabelas no banco de dados.
 
         Args:
-            db_nome (str): Nome do banco de dados.
+            db_name (str): Nome do banco de dados.
         """
-        connection = sqlite3.connect(self.db_name)
+        connection = sqlite3.connect(db_name)
         cursor = connection.cursor()
         cursor.executescript("""
             CREATE TABLE IF NOT EXISTS pokemon (
@@ -53,12 +53,13 @@ class DatabaseInitialize:
         connection.commit()
         connection.close()
 
-    def populate_table(self):
+    def populate_table(db_name: str):
         """Populando as tabelas do banco de dados."""
-        connection = sqlite3.connect(self.db_name)
+        connection = sqlite3.connect(db_name)
         cursor = connection.cursor()
         cursor.executescript("""
             INSERT INTO pokemon (name, health, type) VALUES ('Mewtwo', 150, 'Psychic');
+            INSERT INTO pokemon (name, health, type) VALUES ('Rayquaza', 180, 'Dragon');
             INSERT INTO pokemon (name, health, type) VALUES ('Dragonite', 160, 'Dragon');
             INSERT INTO pokemon (name, health, type) VALUES ('Gyarados', 140, 'Water');
             INSERT INTO pokemon (name, health, type) VALUES ('Alakazam', 130, 'Psychic');
@@ -109,30 +110,71 @@ class DatabaseInitialize:
 
 
             -- Relacionamento entre Pokémon e seus ataques na tabela pokemon_attack
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (1, 1);   -- Mewtwo usando Thunderbolt
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (2, 2);   -- Dragonite usando Vine Whip
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (3, 3);   -- Gyarados usando Flamethrower
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (4, 4);   -- Alakazam usando Water Gun
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (5, 5);   -- Tyranitar usando Psybeam
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (6, 6);   -- Gengar usando Fire Blast
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (7, 7);   -- Snorlax usando Solar Beam
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (8, 8);   -- Arcanine usando Blizzard
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (9, 9);   -- Lapras usando Thunder Punch
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (10, 10); -- Machamp usando Surf
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (11, 11); -- Gengar usando Rock Slide
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (12, 12); -- Snorlax usando Aerial Ace
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (13, 13); -- Arcanine usando Iron Tail
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (14, 14); -- Lapras usando Dark Pulse
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (15, 15); -- Machamp usando Dragon Claw
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (16, 16); -- Mewtwo usando Hyper Beam
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (17, 17); -- Dragonite usando Ice Fang
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (18, 18); -- Gyarados usando Thunder Wave
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (19, 19); -- Alakazam usando Toxic
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (20, 20); -- Tyranitar usando Confuse Ray
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (21, 21); -- Gengar usando Tackle
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (22, 22); -- Snorlax usando Scratch
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (23, 23); -- Arcanine usando Quick Attack
-            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (24, 24); -- Lapras usando Gust
+            -- Mewtwo
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (1, 1); 
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (1, 5); 
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (1, 9); 
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (1, 20);
+            
+            -- Rayquaza
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (2, 15);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (2, 16);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (2, 1); 
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (2, 12);
+            
+            -- Dragonite
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (3, 21);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (3, 22);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (3, 23);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (3, 24);
+            
+            -- Gyarados
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (4, 13);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (4, 14);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (4, 15);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (4, 16);
+            
+            -- Alakazam
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (5, 1); 
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (5, 5); 
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (5, 9); 
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (5, 20);
+            
+            -- Tyranitar
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (6, 11);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (6, 13);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (6, 14);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (6, 18);
+
+            -- Gengar
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (7, 17);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (7, 18);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (7, 19);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (7, 24);
+            
+            -- Snorlax
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (8, 21);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (8, 22);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (8, 23);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (8, 24);
+            
+            -- Arcanine
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (9, 3); 
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (9, 6); 
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (9, 20);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (9, 25);
+
+            -- Lapras
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (10, 4);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (10, 9);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (10, 10);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (10, 16);
+            
+            -- Machamp
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (11, 11);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (11, 17);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (11, 18);
+            INSERT INTO pokemon_attack (pokemon_id, attack_id) VALUES (11, 19);
 
         """)
         connection.commit()

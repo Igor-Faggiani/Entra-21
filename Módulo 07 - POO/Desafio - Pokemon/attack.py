@@ -1,14 +1,37 @@
-from pokemon import Pokemon
+from abc import ABC
 
-class Attack:
-    def __init__(self, id: int, name: str, damage: float, type: str):
-        self.id = id
-        self.name = name
-        self.damage = damage
-        self.type = type
+class Attack(ABC):
+    """Attack representa um tipo de ataque
+    
+    Attributes:
+        name (str): nome do ataque
+        damage (float): dano do ataque
+        type (str): tipo do ataque
+    """
+    def __init__(self, id: int, name: str, damage: int, type: str):
+        self.__id = id
+        self.__name = name
+        self.__damage = damage
+        self.__type = type
         
     def __str__(self) -> str:
-        return f"ID: {self.id} | Nome: {self.name} | Dano: {self.damage} | Tipo: {self.type}"
+        return f"{self.name} Dano: {self.damage} | type: {self.type}"
     
-    def __repr__(self) -> str:
-        return f"Nome: {self.name}"
+    def calculate_damage(self):
+        return self.__damage
+    
+    @property
+    def id(self):
+        return self.__id
+    
+    @property
+    def name(self):
+        return self.__name
+    
+    @property
+    def damage(self):
+        return self.__damage
+    
+    @property
+    def type(self):
+        return self.__type

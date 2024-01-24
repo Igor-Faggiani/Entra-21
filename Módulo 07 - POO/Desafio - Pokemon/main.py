@@ -52,7 +52,7 @@ while True:
                 battle.skip_turn()
                 print(f"Vitória do {pokemon1.name}")
                 
-        case 2:
+        case 2: # Verificar se os dois estão vivos
             print("----------------------------------------------------------------")
             print(f"""A batalha continua!
                     {pokemon1.name} VS {pokemon2.name}
@@ -66,10 +66,9 @@ while True:
                     chosen_attack = int(input("Escolha o ataque: "))
 
                 pokemon2.poke_attack(chosen_attack, pokemon1)
-                if pokemon1.take_damage():
-                    pokemon1.verify_hp()
+                if pokemon1.verify_hp():
 
-                game_phase += 1
-                
+                    
+
         case _:
             break

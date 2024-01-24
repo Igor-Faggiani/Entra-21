@@ -28,7 +28,7 @@ class Battle(ABC):
         self.__pokemon2 = pokemon2
         
     def battle_inverter(self):
-        """Alterna entre o jogador e a máquina"""
+        """Alterna entre o jogador1 e o jogador2"""
         if self.__turn: # False
             self.__player_turn = 1
             print(f"Jogador 1 está atacando:")
@@ -51,3 +51,5 @@ class Battle(ABC):
     
     def skip_turn(self):
         pass
+    
+    # Lógica para aplicar os danos

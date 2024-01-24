@@ -12,4 +12,7 @@ jQuery(function() {
             $menu.attr("class", "nav-link-dark");
         }
     });
+
+    // Habilitar os toast de notificação
+    $(".toast").toast("show");
 });

@@ -1,44 +1,34 @@
 from django import forms
 from .models import Product
-import re
-
 
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = "__all__"
+        exclude = ["thumbnail", "slug", "is_perishable"]
         
-        error_messages = {
-            "comany_name": {
-                "unique": "A Razão Social já existe.",
-                "max_length": "O tamanho máximo da razão social é 255 caracteres."
-            }
+        labels = {
+            "name": "Nome",
+            "description": "Descrição",
+            "sale_price": "Preço de Venda",
+            "expiration_date": "Data de Expiração",
+            "photo": "Foto",
+            "enabled": "Ativo",
+            "category": "Categoria",
         }
         
-        # clean_<nome_campo>
-    def clean_cnpj(self):
-            # Obtendo o valor que foi digitado no formulário
-            cnpj = self.cleaned_data.get("cnpj", "")
-            
-            #removendo valores não numericos
-            cnpj = re.sub("[^0-9]", "", cnpj)
-            
-            return cnpj
+        error_messages = {
+            "name": {
+                "required": "O campo nome é obrigatório",
+                "unique": "Já existe um produto cadastrado com esse nome"
+            },
+            "description": {
+                "required": "O campo descrição é obrigatório",
+            },
+            "sale_price": {
+                "required": "O campo preço de venda é obrigatório",
+            },
+        }
         
-        
-    def clean_phone(self):
-            phone = self.cleaned_data.get("phone", "")
-            
-            #removendo valores não numericos
-            phone = re.sub("[^0-9]", "", phone)
-            
-            return phone
-        
-        
-    def clean_zipcode(self):
-            zipcode = self.cleaned_data.get("zipcode", "")
-            
-            #removendo valores não numericos
-            phone = re.sub("[^0-9]", "", zipcode)
-            
-            return phone
+        widgets = {
+            "expiration_date": forms.DateInput(attrs={"type":"date"}, format="%Y-%m-%d")
+        }

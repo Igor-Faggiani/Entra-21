@@ -67,16 +67,16 @@ def create(request):
         
         print(form.errors)
 
-        cotext = {"form": form}
+        context = {"form": form}
 
-        return render(request, "create.html", cotext)
+        return render(request, "suppliers/create.html", context)
 
     # GET
     form = SupplierForm()
 
     context = { "form": form }
 
-    return render(request, "create.html", context)
+    return render(request, "suppliers/create.html", context)
 
 
 def update(request, slug):

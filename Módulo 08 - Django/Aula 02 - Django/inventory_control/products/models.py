@@ -3,10 +3,12 @@ from django.utils.text import slugify
 from PIL import Image
 from io import BytesIO
 from django.core.files.base import ContentFile
+from suppliers.models import Supplier
 import os
 
 class Category(models.Model):
     name = models.CharField(max_length=255, unique=True)
+    slug = models.SlugField(unique=True, blank=True)
     description = models.TextField(max_length=255)
     
     def __str__(self):
@@ -15,6 +17,9 @@ class Category(models.Model):
         verbose_name = 'Categoria'
         verbose_name_plural = 'Categorias'
         
+    def save(self, *args, **kwargs):
+            self.slug = slugify(self.name)
+            super(Category, self).save(*args, **kwargs)
             
 
 # Create your models here.
@@ -29,6 +34,12 @@ class Product(models.Model):
     thumbnail = models.ImageField(upload_to="thumbnails", blank=True)
     enabled = models.BooleanField(default=True)
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, null=True, blank=True)
+    suppliers = models.ManyToManyField(
+        Supplier,
+        through="SupplierProduct",
+        through_fields=("product", "supplier"),
+        blank=True
+    )
     
     def __str__(self) -> str:
         return self.name
@@ -87,3 +98,13 @@ class Meta:
     verbose_name = "Produto"
     verbose_name_plural = "Produtos"
     
+
+class SupplierProduct(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
+    cost_price = models.DecimalField(max_digits=8, decimal_places=2)
+    
+    class Meta:
+        verbose_name = "Fornecedor do Produto"
+        verbose_name_plural = "Fornecedores dos Produtos"
+        unique_together = [["supplier", "product"]]

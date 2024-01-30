@@ -9,7 +9,7 @@ jQuery(function() {
         if ($menu.attr("href") === currentLocation) {
             $menu.attr("class", "nav-link active");
         } else {
-            $menu.attr("class", "nav-link-dark");
+            $menu.attr("class", "nav-link link-dark");
         }
     });
 

@@ -59,6 +59,6 @@ class PokemonRepository():
         pokemon_name, pokemon_type, pokemon_health = pokemon_data
 
             # Agora você pode criar o objeto Pokemon
-        pokemon = Pokemon(pokemon_name, pokemon_type, pokemon_health, self.__repository_attack.get_attack_pokemon(pokemon))
+        pokemon = Pokemon(pokemon_name, pokemon_health, pokemon_type, self.__repository_attack.get_attack_pokemon(pokemon))
 
         return pokemon

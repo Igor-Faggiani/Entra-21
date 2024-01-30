@@ -15,8 +15,8 @@ class Pokemon(ABC):
     
     def __init__(self, name: str, type: str, life: int, attacks: List[Attack]):
         self.__name = name
-        self.__life = life
         self.__type = type
+        self.__life = life
         self.__attacks = attacks
         
     @property
@@ -71,7 +71,7 @@ class Pokemon(ABC):
             print(f"O pokemon {self.name} está inconciente")
             return True
         else:
-            print(f"O pokemon {self.name} está com {self.life} de HP")
+            print(f"{self.name}: {self.life} HP")
             return False
         
         

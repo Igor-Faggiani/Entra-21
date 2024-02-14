@@ -22,6 +22,18 @@ class Category(models.Model):
             super(Category, self).save(*args, **kwargs)
             
 
+class ProductInventory(models.Model):
+    quantity = models.DecimalField(max_digits=5, decimal_places=2)
+    local = models.CharField(max_length=255, unique=True)
+    
+    def __str__(self):
+        return self.local
+    
+    class Meta:
+        verbose_name = "Inventário do Produto"
+        verbose_name_plural = "Inventários dos Produtos"
+
+
 # Create your models here.
 class Product(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -29,11 +41,12 @@ class Product(models.Model):
     slug = models.SlugField(blank=True, unique=True)
     sale_price = models.DecimalField(max_digits=10, decimal_places=2)
     is_perishable = models.BooleanField()
+    inventory = models.ForeignKey(ProductInventory, on_delete=models.DO_NOTHING)
     explation_date = models.DateField(blank=True, null=True)
     photo = models.ImageField(upload_to="products", blank=True, null=True)
     thumbnail = models.ImageField(upload_to="thumbnails", blank=True)
     enabled = models.BooleanField(default=True)
-    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, null=True, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     suppliers = models.ManyToManyField(
         Supplier,
         through="SupplierProduct",
@@ -108,3 +121,5 @@ class SupplierProduct(models.Model):
         verbose_name = "Fornecedor do Produto"
         verbose_name_plural = "Fornecedores dos Produtos"
         unique_together = [["supplier", "product"]]
+        
+

@@ -4,7 +4,7 @@
 {% block title %}Cadastro de Produtos{% endblock %}
 {% block head %}
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
-  <script src="{% static 'products/createUpdate.js' %}"></script>
+  <script src="{% static 'products/js/createUpdate.js' %}"></script>
 {% endblock head %} 
 {% block content %}
   {% with create_url="/produtos/cadastro" %}
@@ -39,6 +39,12 @@
         <div class="col-md-6">
           {{ form.explation_date|as_crispy_field }}
         </div>
+        <div class="col-md-6">
+          {{ form.inventory|as_crispy_field }}
+        </div>
+        <div class="col-md-6">
+          {% comment %} {{ form.inventory.quantity|as_crispy_field }} {% endcomment %}
+        </div>
       </div>
 
       <div class="row mb-3">
@@ -52,7 +58,7 @@
         {{ supplier_product_formset.management_form }}
         {% for supplier in supplier_product_formset  %}
           <div class="row mb-3">
-            {{ form.id }}
+            {{ supplier.id }}
             <div class="col-md-5">
               {{ supplier.supplier|as_crispy_field}}
             </div>
@@ -61,7 +67,10 @@
             </div>
             <div class="col-md-2">
               <div class="d-grid">
-                <button type="button" class="btn btn-danger remove-btn">
+                <button
+                {% if supplier.id.value %}data-url="{% url "products:delete_supplier" supplier.id.value %}"{% endif %}
+                type="button" 
+                class="btn btn-danger remove-btn">
                   <i class="bi bi-x"></i>
                 </button>
               </div>

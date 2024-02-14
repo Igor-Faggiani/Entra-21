@@ -47,7 +47,7 @@ while True:
                     print("Por favor escolha um ataque existente.")
                     chosen_attack = int(input("Escolha o ataque: "))
                     
-            damage = pokemon1.poke_attack(chosen_attack -1, pokemon2)
+            damage = pokemon1.poke_attack(chosen_attack -1, pokemon2)            
             if pokemon2.verify_hp():
                 battle.skip_turn()
                 print(f"Vitória do {pokemon1.name}")

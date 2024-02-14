@@ -57,13 +57,21 @@ class Pokemon(ABC):
         if 0 <= chosen_attack < len(self.attacks):
             selected_attack = self.attacks[chosen_attack]
             print(f"{self.name} atacou {target.name} com {selected_attack.name} e recebeu {selected_attack.damage} de dano!")
-            damage = selected_attack.calculate_damage()
-            return damage
+            damage = self.life - selected_attack.damage
+            return print(damage)
         else:
             print(f"{self.name} não possui um ataque com o ID {chosen_attack}.")
             return 0.0  # Retorna 0.0 se chosen_attack for inválido
         
        
+    def recive_damage(self, chosen_attack: int, target):
+        """Função para o pokemon receber o dano"""
+        selected_attack = self.attacks[chosen_attack]
+            
+        recive_damage = target.life - selected_attack.damage
+        return print(recive_damage)
+    
+    
     def verify_hp(self):
         """Função para verificar se o pokemon está vivo"""
         if self.life <= 0:
@@ -74,7 +82,7 @@ class Pokemon(ABC):
             print(f"{self.name}: {self.life} HP")
             return False
         
-        
+    
     def show_attacks(self):
         """Função para mostrar os ataques do pokemon"""
         print(f"Ataques de {self.name}:")

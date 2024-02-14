@@ -1,11 +1,11 @@
 from django import forms
-from .models import Category, Product, SupplierProduct
+from .models import Category, Product, ProductInventory, SupplierProduct
 from crispy_forms.helper import FormHelper
 
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        exclude = ["thumbnail", "slug", "is_perishable"]
+        exclude = ["thumbnail", "slug", "is_perishable", "suppliers"]
         
         labels = {
             "name": "Nome",
@@ -65,3 +65,11 @@ SupplierProductFormSet = forms.inlineformset_factory(
     can_delete=True,
     max_num=1
 )
+
+class ProductInventoryForm(forms.ModelForm):
+    class Meta:
+        model = ProductInventory
+        exclude = ["product", "local"]
+        widgets = {
+            "price": forms.NumberInput(attrs={"placeholder": "Preço"})
+        }

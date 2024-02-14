@@ -56,11 +56,27 @@
                 Produtos
               </a>
             </li>
+            <li>
+              <a href="{% url 'products:categories' %}" class="nav-link link-dark">
+                <i class="bi bi-tags"></i>
+                Categorias
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'users:index' %}" class="nav-link link-dark">
+                <i class="bi bi-person"></i>
+                Usuários
+              </a>
+            </li>
           </ul>
           <hr />
           <ul class="nav nav-pills">
             <li>
-              <a href="#" class="nav-link link-dark"><i class="bi bi-box-arrow-left">Sair</i></a>
+              <form action=" {% url "users:logout" %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="nav-link link-dark">
+                  <i class="bi bi-box-arrow-left"> Sair</i></a>
+              </form>
             </li>
           </ul>
         </nav>

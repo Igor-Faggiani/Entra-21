@@ -6,5 +6,5 @@ class DamageCalculator(ABC):
     """Calcula o dano recebido do pokemon"""
     
         
-    def calculate_damage(self, pokemon1: Pokemon, pokemon2: Pokemon):
-        pokemon2.life -= pokemon1.damage
+    def calculate_damage(self, chosen_attack: int, target):
+        

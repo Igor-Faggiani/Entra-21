@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import environ
 
+# Inicializando as variáveis de ambiente
+env = environ.Env()
+environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z&isweva+7v=n#h4o&_^)!tnjm5%ts*+hn8cv@%xaiyh3nkgh@'
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,8 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'suppliers.apps.SuppliersConfig',
     'products.apps.ProductsConfig',
+    'users.apps.UsersConfig',
     'crispy_forms',
-    "crispy_bootstrap5",
+    'api.apps.ApiConfig',
+    'crispy_bootstrap5',
+    'rest_framework',
 ]
 
 CRISPY_TEMPLATE_PACK = 'uni_form'
@@ -87,8 +94,12 @@ WSGI_APPLICATION = 'inventory_control.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env("DB_NAME"),
+        'USER': env("DB_USER"),
+        'PASSWORD': env("DB_PASSWORD"),
+        'HOST': env("DB_HOST"),
+        'PORT': env("DB_PORT"),
     }
 }
 
@@ -143,4 +154,7 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
 # Configurando arquivos de media para desenvolvimento
 MEDIA_URL = "media/"
+
 MEDIA_ROOT = BASE_DIR / "media/"
+
+LOGIN_URL = "/login/"
